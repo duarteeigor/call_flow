@@ -1,28 +1,3 @@
-import NextAuth from "next-auth";
-import Google from "next-auth/providers/google";
-import { PrismaAdapter } from "@auth/prisma-adapter"
-import { prisma } from "@/lib/prisma"
+import { handlers } from "@/auth";
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
-  adapter: PrismaAdapter(prisma),
-  providers: [
-    Google({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
-  ],
-  callbacks: {
-    async session({session, token, user}){
-        return{
-            ...session,
-            user: {
-                ...session.user,
-                id: user.id
-            }
-        }
-    }
-  }
-});
-
-// 👇 Isso expõe GET e POST automaticamente
-export const { GET, POST } = handlers;
+export const {GET, POST} = handlers
