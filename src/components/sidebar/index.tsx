@@ -18,12 +18,23 @@ export function Sidebar({ path }: { path: string }) {
     const [open, setOpen] = useState(false)
     const router = useRouter()
 
-    const textFormated =
-        path.replace("/", "").charAt(0).toUpperCase() + path.replace("/", "").slice(1)
+
+    function getTransalateNamePage() {
+        const routeNames: Record<string, string> = {
+            dashboard: "Dashboard",
+            costumer: "Clientes",
+            new: "Novo cliente",
+            
+        };
+
+        const section = path.split("/").pop() || "dashboard";
+        const title = routeNames[section] ?? section.charAt(0).toUpperCase() + section.slice(1);
+        return title
+    }
 
     const items = [
         { label: "Dashboard", href: "/dashboard", icon: <User size={22} /> },
-        { label: "Clients", href: "/clients", icon: <ClipboardMinus size={22} /> },
+        { label: "Clients", href: "/dashboard/costumer", icon: <ClipboardMinus size={22} /> },
         { label: "Report", href: "/report", icon: <ChartNoAxesColumnIncreasing size={22} /> },
     ]
 
@@ -39,8 +50,8 @@ export function Sidebar({ path }: { path: string }) {
         return () => window.removeEventListener("resize", handleResize)
     }, [])
 
-    async function handleLogout(){
-        await signOut({redirect: false})
+    async function handleLogout() {
+        await signOut({ redirect: false })
         router.replace("/")
     }
 
@@ -81,7 +92,7 @@ export function Sidebar({ path }: { path: string }) {
                             }`}
                     >
                         <h2 className="text-lg font-semibold text-gray-800 whitespace-nowrap">
-                            {textFormated}
+                            {getTransalateNamePage()}
                         </h2>
                     </div>
                 </div>
@@ -95,8 +106,8 @@ export function Sidebar({ path }: { path: string }) {
                                 key={item.label}
                                 href={item.href}
                                 className={`flex items-center gap-3 p-2 rounded-md transition-colors duration-300 cursor-pointer ${isActive
-                                        ? "bg-[#6F78F5] text-white"
-                                        : "text-gray-700 hover:bg-gray-200"
+                                    ? "bg-[#6F78F5] text-white"
+                                    : "text-gray-700 hover:bg-gray-200"
                                     }`}
                             >
                                 <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
