@@ -1,11 +1,12 @@
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 
-import { Trash, Pencil, Pen } from "lucide-react"
+import { Trash, Pencil } from "lucide-react"
+import Link from "next/link"
 
 export default async function Dashboard() {
     const session = await auth()
-    
+
     if (!session) {
         redirect("/")
     }
@@ -14,11 +15,13 @@ export default async function Dashboard() {
         <div className="max-w-7xl w-full  mx-auto px-5 md:pl-20 md:pr-4  2xl:pl-0 2xl:pr-0">
             <div className="w-full flex justify-between items-center mb-10">
                 <h2 className=" text-2xl md:text-4xl font-medium">Chamados</h2>
-                <button
-                    className="p-2 px-2 md:px-6 bg-[#6F78F5] text-white rounded-md 
+                <Link href={"/dashboard/ticket/new" }>
+                    <button
+                        className="p-2 px-2 md:px-6 bg-[#6F78F5] text-white rounded-md 
                         hover:scale-105 cursor-pointer transition-transform duration-200">
-                    Cadastrar
-                </button>
+                        Cadastrar
+                    </button>
+                </Link>
             </div>
 
             <table className="w-full">
