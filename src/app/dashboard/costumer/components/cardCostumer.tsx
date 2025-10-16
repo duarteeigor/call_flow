@@ -1,15 +1,8 @@
 "use client"
 
+import { CostumerProps } from "@/utils/types/costumer";
 import { useRouter } from "next/navigation";
 
-interface CostumerProps {
-        id: string;
-        address?: string | null;
-        name: string;
-        phone: string;
-        email: string;
-        user_id: string | null;
-}
 
 export function CardCostumer({ costumer }: {costumer: CostumerProps}) {
     const router = useRouter()
