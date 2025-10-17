@@ -1,7 +1,6 @@
 
 import { prisma } from "@/lib/prisma";
 import { TableDashboard } from "../../components/TableDashboard";
-import { TicketProps } from "@/utils/types/ticket";
 import { auth } from "@/auth";
 
 export default async function HistoryTickets(){
