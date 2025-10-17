@@ -9,5 +9,5 @@ export interface TicketProps{
     description: string;
     status: string;
     costumer_id: string | null;
-    costumer: CostumerProps
+    costumer: CostumerProps | null;
 }
