@@ -34,8 +34,8 @@ export function Sidebar({ path }: { path: string }) {
 
     const items = [
         { label: "Dashboard", href: "/dashboard", icon: <User size={22} /> },
-        { label: "Clients", href: "/dashboard/costumer", icon: <ClipboardMinus size={22} /> },
-        { label: "Report", href: "/report", icon: <ChartNoAxesColumnIncreasing size={22} /> },
+        { label: "Clientes", href: "/dashboard/costumer", icon: <ClipboardMinus size={22} /> },
+        { label: "Historico", href: "/dashboard/ticket/history", icon: <ChartNoAxesColumnIncreasing size={22} /> },
     ]
 
     // Detecta mobile
