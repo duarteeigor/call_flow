@@ -7,6 +7,8 @@ import {
     User,
     CircleUserRound,
     LogOut,
+    Home,
+    Clock
 } from "lucide-react"
 import { signOut } from "next-auth/react"
 import Link from "next/link"
@@ -24,6 +26,7 @@ export function Sidebar({ path }: { path: string }) {
             dashboard: "Dashboard",
             costumer: "Clientes",
             new: "Novo cliente",
+            history: "Histórico"
             
         };
 
@@ -35,7 +38,7 @@ export function Sidebar({ path }: { path: string }) {
     const items = [
         { label: "Dashboard", href: "/dashboard", icon: <User size={22} /> },
         { label: "Clientes", href: "/dashboard/costumer", icon: <ClipboardMinus size={22} /> },
-        { label: "Historico", href: "/dashboard/ticket/history", icon: <ChartNoAxesColumnIncreasing size={22} /> },
+        { label: "Historico", href: "/dashboard/ticket/history", icon: <Clock size={22} /> },
     ]
 
     // Detecta mobile
@@ -86,12 +89,12 @@ export function Sidebar({ path }: { path: string }) {
             >
                 {/* TOP-SIDEBAR */}
                 <div className="flex items-center gap-3 mb-8 px-1 w-full">
-                    <CircleUserRound color="#1E254A" size={35} />
+                    <Link href={"/"}><Home color="#1A2B42" size={30} /></Link>
                     <div
                         className={`overflow-hidden transition-all duration-500 ${open ? "w-40 ml-2" : "w-0"
                             }`}
                     >
-                        <h2 className="text-lg font-semibold text-gray-800 whitespace-nowrap">
+                        <h2 className="text-lg font-semibold text-[#1A2B42] whitespace-nowrap">
                             {getTransalateNamePage()}
                         </h2>
                     </div>
@@ -106,7 +109,7 @@ export function Sidebar({ path }: { path: string }) {
                                 key={item.label}
                                 href={item.href}
                                 className={`flex items-center gap-3 p-2 rounded-md transition-colors duration-300 cursor-pointer ${isActive
-                                    ? "bg-[#6F78F5] text-white"
+                                    ? "bg-[#1A2B42] text-white"
                                     : "text-gray-700 hover:bg-gray-200"
                                     }`}
                             >
