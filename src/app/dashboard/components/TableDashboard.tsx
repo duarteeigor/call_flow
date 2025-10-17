@@ -1,14 +1,19 @@
 "use client"
 
-
+import { ModalContext } from "@/providers/modal"
 import { TicketProps } from "@/utils/types/ticket"
 import { CircleCheckBigIcon, Pencil } from "lucide-react"
 import { useRouter } from "next/navigation"
-
+import { useContext } from "react"
 
 export function TableDashboard({tickets}: {tickets: TicketProps[]}){
      const router = useRouter()
-     
+     const {changeVisible, getTicket} = useContext(ModalContext)
+
+     function handleGetDataModal(ticket: TicketProps){
+        changeVisible()
+        getTicket(ticket)
+     }
 
      async function handleChangeStatus(id: string){
         
@@ -46,7 +51,7 @@ export function TableDashboard({tickets}: {tickets: TicketProps[]}){
                             <td className="px-4 py-2 text-left">
                                 <div className="flex gap-2">
                                     <CircleCheckBigIcon size={22} color="gray" onClick={()=>handleChangeStatus(ticket.id)} />
-                                    <Pencil  size={22} />
+                                    <Pencil onClick={()=>handleGetDataModal(ticket)} size={22} />
                                 </div>
                             </td>
                         </tr>
