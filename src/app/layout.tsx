@@ -3,6 +3,7 @@ import { Poppins, Roboto } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { AuthProvider } from "@/providers/auth";
+import { ModalProvider } from "@/providers/modal";
 
 
 const poppins = Poppins({
@@ -33,11 +34,13 @@ export default function RootLayout({
         className={`${poppins.variable} ${roboto.variable} antialiased`}
       >
         <AuthProvider>
-          <Header />
-          {children}
+          <ModalProvider>
+            <Header />
+            {children}
+          </ModalProvider>
         </AuthProvider>
-          
-        
+
+
 
       </body>
     </html>
