@@ -1,10 +1,10 @@
 import Image from "next/image";
-import HomeImage from "../../public/abc.png"
+import HomeImage from "../../public/abcd.png"
 export default function Home() {
   return (
-    <main className="h-screen pt-20 w-full bg-gradient-to-b from-[#141C36] via-[#21356A] to-[#1D4E3A]">
-      <div className="max-w-7xl w-full mx-auto px-4 md:flex h-[60dvh] flex-row-reverse items-center justify-center">
-        <div className="relative w-full h-80 md:h-100 ">
+    <main className="h-screen pt-20 w-full bg-gradient-to-b from-[#050812] to-[#1b284bbd]">
+      <div className="max-w-7xl  w-full mx-auto px-4  md:flex md:h-[60dvh] flex-row-reverse items-center justify-center">
+        <div className="relative w-full h-80 sm:h-90 sm:w-10/12 md:h-115 md:w-full mb-5 mx-auto">
           <Image
             src={HomeImage}
             alt=""
