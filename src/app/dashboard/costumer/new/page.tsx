@@ -8,7 +8,7 @@ export default function NewCostumer() {
             <section className="flex gap-4 items-center mb-20">
                 <Link href={"/dashboard/costumer"}>
                     <button
-                        className="py-1 px-4 rounded-md bg-[#6F78F5] text-white text-sm
+                        className="py-1 px-4 rounded-md bg-[#1A2B42] text-white text-sm
                             hover:scale-105 duration-200 cursor-pointer">
                         Voltar
                     </button>

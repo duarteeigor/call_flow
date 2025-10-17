@@ -105,7 +105,7 @@ export function NewCostumerForm() {
                     />
                 </div>
 
-                <button type="submit" className="w-full p-2 mt-10 bg-[#6F78F5] text-white rounded-md hover:scale-105 duration-200 cursor-pointer">Cadastrar</button>
+                <button type="submit" className="w-full p-2 mt-10 bg-[#1A2B42] text-white rounded-md hover:scale-105 duration-200 cursor-pointer">Cadastrar</button>
 
             </form>
         </div>

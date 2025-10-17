@@ -59,7 +59,7 @@ export default async function NewTicket() {
                 <section className="flex items-center gap-4 mb-10">
                     <Link href={"/dashboard"}>
                         <button
-                            className="py-2 px-3 text-sm text-white bg-[#6F78F5] rounded-md cursor-pointer
+                            className="py-2 px-3 text-sm text-white bg-[#1A2B42] rounded-md cursor-pointer
                         hover:scale-105 duration-200">
                             Voltar
                         </button>
@@ -91,11 +91,15 @@ export default async function NewTicket() {
                             <>
                                 <label>Selecione o cliente</label>
                                 <select
-                                    className="w-full  border-2 border-slate-200 p-2 rounded-md outline-none"
-                                    name="costumer">
+                                    className="w-full  border-2 border-slate-200 p-2 rounded-md outline-none text-gray-700"
+                                    name="costumer"
+                                    required
+                                    defaultValue="">
+                                        <option value="" disabled >--- Selecione um cliente ---</option>
                                     {costumers && costumers.map((item) => (
                                         <option key={item.id} value={item.id}>{item.name}</option>
                                     ))}
+                                    
                                 </select>
                             </>
                         ) : (
@@ -103,7 +107,7 @@ export default async function NewTicket() {
                         )}
 
                         <button
-                            className="w-full p-2 text-white bg-[#6F78F5] rounded-md cursor-pointer mt-4
+                            className="w-full p-2 text-white bg-[#1A2B42] rounded-md cursor-pointer mt-4
                             hover:scale-102 duration-200 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:hover:scale-100"
                             disabled={costumers.length === 0}
                             type="submit">

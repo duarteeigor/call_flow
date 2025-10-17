@@ -24,7 +24,7 @@ export default async function Costumer() {
                     <h2 className="text-2xl md:text-4xl font-medium">Meus clientes</h2>
                     <Link href={"/dashboard/costumer/new"}>
                         <button
-                            className="p-2 px-2 md:px-6 bg-[#6F78F5] text-white rounded-md 
+                            className="p-2 px-2 md:px-6 bg-[#1A2B42] text-white rounded-md 
                             hover:scale-105 cursor-pointer transition-transform duration-200">
                             Novo Cliente
                         </button>

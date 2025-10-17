@@ -1,10 +1,8 @@
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 
-import { CircleCheckBigIcon, Pencil } from "lucide-react"
 import Link from "next/link"
 import { prisma } from "@/lib/prisma"
-import { TicketProps } from "@/utils/types/ticket"
 import { TableDashboard } from "./components/TableDashboard"
 
 export default async function Dashboard() {
@@ -18,9 +16,13 @@ export default async function Dashboard() {
         where: {
             user_id: session.user?.id,
             status: "aberto"
+            
         },
         include: {
             costumer: true
+        },
+        orderBy: {
+            created_at: "desc"
         }
     })
 
@@ -30,7 +32,7 @@ export default async function Dashboard() {
                 <h2 className=" text-2xl md:text-4xl font-medium">Chamados</h2>
                 <Link href={"/dashboard/ticket/new"}>
                     <button
-                        className="p-2 px-2 md:px-6 bg-[#6F78F5] text-white rounded-md 
+                        className="p-2 px-2 md:px-6 bg-[#1A2B42] text-white rounded-md 
                         hover:scale-105 cursor-pointer transition-transform duration-200">
                         Cadastrar
                     </button>
