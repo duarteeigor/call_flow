@@ -20,7 +20,6 @@ export function FormTicket({ costumer_id }: { costumer_id: string }) {
     })
 
     async function onSubmit(data: FormData) {
-        console.log(data)
 
         try {
             const response = await fetch("/api/ticket", {
