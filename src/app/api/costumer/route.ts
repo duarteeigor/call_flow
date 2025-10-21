@@ -7,8 +7,6 @@ export async function GET(request: Request){
     const {searchParams} = new URL(request.url)
     const email = searchParams.get("email")
 
-    
-
         try {
 
             const response = await prisma.costumer.findFirst({
@@ -24,12 +22,6 @@ export async function GET(request: Request){
         } catch (error) {
             return NextResponse.json({message: "Internal error"})
         }
-        
-        
-   
-    
-
-
 }
 
 export async function POST(request: Request) {
@@ -67,11 +59,21 @@ export async function DELETE(request: Request){
         try {
             const findTickets = await prisma.ticket.findFirst({
                 where: {
-                    costumer_id: user_id
+                    costumer_id: user_id,
+                    status: "aberto"
                 }
             })
 
-            if(findTickets) return NextResponse.json({message: "Cannot delete an costumer that has a ticket"}, {status: 400})
+            if(findTickets) return NextResponse.json({message: "Cannot delete an costumer that has a open ticket"}, {status: 400})
+
+            await prisma.ticket.deleteMany({
+                where: {
+                    costumer_id: user_id,
+                    NOT: {
+                        status: "abeto"
+                    }
+                }
+            })    
             await prisma.costumer.delete({
                 where: {
                     id: user_id as string
