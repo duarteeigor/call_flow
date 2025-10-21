@@ -2,9 +2,12 @@
 import { prisma } from "@/lib/prisma";
 import { TableDashboard } from "../../components/TableDashboard";
 import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
 export default async function HistoryTickets(){
     const session = await auth()
+
+    if(!session) redirect("/")
     const tickets = await prisma.ticket.findMany({
         where: {
             user_id: session?.user?.id 

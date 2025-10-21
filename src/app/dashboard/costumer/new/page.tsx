@@ -1,8 +1,15 @@
 import Link from "next/link";
 import { NewCostumerForm } from "../components/formCostumer";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
 
-export default function NewCostumer() {
+export default async function NewCostumer() {
+    const session = await auth()
+
+    if(!session){
+        redirect("/")
+    }
     return (
         <div className="max-w-7xl w-full flex flex-col mx-auto px-5 md:pl-20 md:pr-2">
             <section className="flex gap-4 items-center mb-20">
