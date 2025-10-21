@@ -14,3 +14,6 @@ O projeto inclui funcionalidades como abertura de chamados pelo cliente, gerenci
 - **NextAuth.js** (autenticação via Google)  
 - **MongoDB** + **Prisma** (ORM para gerenciamento de dados)  
 - **API do Next.js** (backend integrado para requisições)
+
+
+Link deploy: <a href="https://callflow-br.vercel.app/">CallFlow</a>
