@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HomeImage from "../../public/abcd.png"
+import HomeImage from "@/assets/abcd.png"
 import Link from "next/link";
 
 export default function Home() {
