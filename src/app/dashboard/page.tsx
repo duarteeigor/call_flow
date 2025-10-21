@@ -28,6 +28,7 @@ export default async function Dashboard() {
 
     return (
         <div className="max-w-7xl w-full  mx-auto px-5 md:pl-20 md:pr-4  2xl:pl-0 2xl:pr-0">
+            
             <div className="w-full flex justify-between items-center mb-10">
                 <h2 className=" text-2xl md:text-4xl font-medium">Chamados</h2>
                 <Link href={"/dashboard/ticket/new"}>
@@ -39,7 +40,13 @@ export default async function Dashboard() {
                 </Link>
             </div>
 
-            <TableDashboard tickets={tickets} />
+            {tickets.length === 0 ? (
+                <span className="text-sm text-gray-600">Nenhum chamado em aberto</span>
+            ): (
+                <TableDashboard tickets={tickets} />
+            )}
+
+            
         </div>
     )
 }
