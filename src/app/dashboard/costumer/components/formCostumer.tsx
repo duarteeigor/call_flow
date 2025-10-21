@@ -60,7 +60,7 @@ export function NewCostumerForm() {
                         label="Nome completo"
                         type="text"
                         name="name"
-                        regiser={register}
+                        register={register}
                         placeholder="Digite o nome..."
                         error={errors.name?.message}
                     />
@@ -75,7 +75,7 @@ export function NewCostumerForm() {
                             type="tel"
                             name="phone"
                             placeholder="Exemplo (xx) 9999-9999"
-                            regiser={register}
+                            register={register}
                             error={errors.phone?.message}
                         />
                     </div>
@@ -87,7 +87,7 @@ export function NewCostumerForm() {
                             type="email"
                             name="email"
                             placeholder="Digite o email..."
-                            regiser={register}
+                            register={register}
                             error={errors.email?.message}
                         />
                     </div>
@@ -100,7 +100,7 @@ export function NewCostumerForm() {
                         type="text"
                         name="address"
                         placeholder="Digite o endereço completo..."
-                        regiser={register}
+                        register={register}
                         error={errors.address?.message}
                     />
                 </div>
