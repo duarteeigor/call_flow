@@ -39,8 +39,8 @@ export default function PublicTicket() {
 
         const { id, name } = await response.json() as CostumerTicketProps;
 
-        if(!response.ok){
-            setError('email', { type: "custom", message: "Cliente não existe"})
+        if (!response.ok) {
+            setError('email', { type: "custom", message: "Cliente não existe" })
             toast.error("Cliente não encontrado com o email especificado")
             return
         }
@@ -89,7 +89,12 @@ export default function PublicTicket() {
 
                         />
 
-                        <button type="submit" className="w-full p-2 rounded-md bg-[#1A2B42] text-white flex items-center justify-center gap-3 mt-5">Procurar clientes <Search size={22} color="#fff" /></button>
+                        <button
+                            type="submit"
+                            className="w-full p-2 rounded-md bg-[#1A2B42] text-white flex items-center justify-center gap-3 mt-5 cursor-pointer
+                            hover:scale-102 transition-transform duration-200">
+                            Buscar cliente<Search size={22} color="#fff" />
+                        </button>
 
 
                     </form>

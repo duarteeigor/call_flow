@@ -50,22 +50,30 @@ export function FormTicket({ costumer_id }: { costumer_id: string }) {
     return (
         <form className="max-w-2xl w-full bg-slate-200 rounded-lg p-6 flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
             <Input
-                placeholder="Digite o nome do chamado..."
+                label="Titulo"
+                placeholder="Digite o titulo do chamado..."
                 type="text"
                 name="title"
                 register={register}
                 error={errors.title?.message}
 
             />
+            <div>
+                <label className={`${errors.describe?.message ? "text-red-500" : ""}`}>Descrição</label>
+                <textarea
+                    className={`w-full resize-none h-20 p-2 border-2 mt-2 rounded-md outline-none bg-white ${errors.describe ? "border-red-500" : "border-slate-100"}`}
+                    placeholder="Descreva o seu problema..."
+                    {...register("describe")}
+                />
+                <p className="text-sm text-red-500">{errors.describe?.message}</p>
+            </div>
 
-            <textarea
-                className={`w-full resize-none h-20 p-2 border-2 mt-4 rounded-md outline-none bg-white ${errors.describe ? "border-red-500" : "border-slate-100"}`}
-                placeholder="Descreva o seu problema..."
-                {...register("describe")}
-            />
-            <p className="text-sm text-red-500">{errors.describe?.message}</p>
-
-            <button type="submit" className="w-full p-2 rounded-md bg-[#1A2B42] text-white flex items-center justify-center gap-3 mt-5">Cadastrar<Search size={22} color="#fff" /></button>
+            <button
+                type="submit"
+                className="w-full p-2 rounded-md bg-[#1A2B42] text-white flex items-center justify-center gap-3 mt-5 cursor-pointer
+                hover:scale-102 transition-transform duration-200">
+                Cadastrar<Search size={22} color="#fff" />
+            </button>
 
         </form>
     )
