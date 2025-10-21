@@ -37,7 +37,7 @@ export default async function NewTicket() {
 
         if (!name || !description || !costumerId) return
 
-        try {
+        
             await prisma.ticket.create({
                 data: {
                     name: name as string,
@@ -48,9 +48,7 @@ export default async function NewTicket() {
                 }
             })
             redirect("/dashboard")
-        } catch (error) {
-            console.log(error)
-        }
+        
     }
 
     return (
