@@ -5,6 +5,7 @@ import { email, z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Input } from "@/components/input"
 import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
 
 const schema = z.object({
     name: z.string().nonempty("Campo obrigatorio em branco"),
@@ -43,6 +44,7 @@ export function NewCostumerForm() {
             if(response.ok){
                 router.refresh()
                 router.replace("/dashboard/costumer")
+                toast.success("Cliente cadastrado com sucesso!")
             }
         } catch (error) {
             throw new Error("Failed to create new Costumer")
