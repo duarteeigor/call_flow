@@ -60,7 +60,7 @@ export default function PublicTicket() {
     }
     return (
         <div className="pt-20 max-w-7xl w-full mx-auto">
-            <div className="flex flex-col justify-center items-center gap-8">
+            <div className="flex flex-col justify-center items-center gap-8 px-5">
                 <h2 className="text-2xl md:text-4xl">Abrir chamado</h2>
 
                 {costumer && (
