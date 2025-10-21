@@ -1,5 +1,7 @@
 import Image from "next/image";
 import HomeImage from "../../public/abcd.png"
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="h-screen pt-20 w-full bg-gradient-to-b from-[#050812] to-[#1b284bbd]">
@@ -16,9 +18,16 @@ export default function Home() {
           />
         </div>
 
-        <div>
+        <div className="flex flex-col">
           <h2 className="text-2xl text-gray-200 md:text-3xl">CALLFLOW: GERENCIAMENTO INTELIGENTE DE CHAMADOS</h2>
           <h3 className="text-gray-400">Conectando clientes e soluções em tempo real</h3>
+          <Link href="/public/ticket">
+            <button
+              className="bg-white p-2 rounded-md w-11/12 md:w-9/12 mt-6 cursor-pointer
+            hover:bg-[#1A2B42] hover:text-white transition-colors duration-200 ease-in">
+              Abrir chamado
+            </button>
+          </Link>
         </div>
       </div>
     </main>
